@@ -5,7 +5,7 @@ import {
   NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
-import logo from '../assets/logo2.png';
+import logo from '"../assets/logo.PNG";';
 export default function AppNavbar() {
   return (
     <Navbar

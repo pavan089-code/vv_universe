@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import "flowbite-react/plugin/tailwindcss";
+
+/* Use @plugin for JS-based plugins in v4 */
+@plugin "flowbite/plugin";
+
+/* Ensure this source path is correct relative to index.css */
+@source "../node_modules/flowbite-react/dist/esm/**/*.mjs";
+@source "../.flowbite-react/class-list.json";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section Title */
+.section-title {
+  @apply text-4xl md:text-5xl font-bold text-[#F5F5F5] text-center;
+}
+
+/* Section Subtitle */
+.section-subtitle {
+  @apply text-gray-400 text-center mt-4 max-w-2xl mx-auto;
+}

@@ -5,7 +5,8 @@ import {
   NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
-import logo from '"../assets/logo.PNG";';
+import logo from "../assets/logo.PNG";
+
 export default function AppNavbar() {
   return (
     <Navbar
@@ -15,11 +16,7 @@ export default function AppNavbar() {
     >
       {/* Logo */}
       <NavbarBrand href="/" className="flex items-center gap-3">
-        <img
-          src={logo}
-          className="h-10 w-auto"
-          alt="VV Universe Logo"
-        />
+        <img src={logo} className="h-10 w-auto" alt="VV Universe Logo" />
         <span className="text-lg md:text-xl font-semibold tracking-wide text-white">
           VV Universe
         </span>
@@ -28,7 +25,7 @@ export default function AppNavbar() {
       {/* Right Side */}
       <div className="flex items-center gap-4 md:order-2">
         <button
-  className="
+          className="
     px-4 py-1.5 text-sm 
     md:px-6 md:py-2 md:text-base
     rounded-lg font-medium
@@ -37,9 +34,9 @@ export default function AppNavbar() {
     transition duration-300
     shadow-md
   "
->
-  Book Now
-</button>
+        >
+          Book Now
+        </button>
 
         <NavbarToggle className="text-white hover:bg-white/10" />
       </div>

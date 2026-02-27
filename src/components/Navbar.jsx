@@ -5,7 +5,7 @@ import {
   NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
-
+import logo from '../assets/logo2.png';
 export default function AppNavbar() {
   return (
     <Navbar
@@ -16,7 +16,7 @@ export default function AppNavbar() {
       {/* Logo */}
       <NavbarBrand href="/" className="flex items-center gap-3">
         <img
-          src="/src/assets/logo2.png"
+          src={logo}
           className="h-10 w-auto"
           alt="VV Universe Logo"
         />

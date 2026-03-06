@@ -21,3 +21,85 @@ html {
 .section-subtitle {
   @apply text-gray-400 text-center mt-4 max-w-2xl mx-auto;
 }
+
+
+button{
+    cursor: pointer;
+}
+
+/* ===== GLOBAL THEME COLORS ===== */
+
+:root {
+  --navy: #0F1A2A;
+  --navy-light: #162338;
+  --navy-card: #1E2F4A;
+  --navy-dark: #0B1422;
+
+  --gold: #C6A75E;
+
+  --text-primary: #F5F5F5;
+  --text-secondary: #C7D0E0;
+}
+
+/* ===== BODY BACKGROUND ===== */
+
+body {
+  background-color: var(--navy);
+  color: var(--text-primary);
+}
+
+/* ===== NAVBAR ===== */
+
+nav {
+  background-color: rgba(15, 26, 42, 0.75) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* ===== SECTION BACKGROUNDS ===== */
+
+section {
+  background-color: var(--navy);
+}
+
+/* alternate section tone */
+
+section:nth-child(even) {
+  background-color: var(--navy-light);
+}
+
+/* ===== CARDS (services/blog/testimonials) ===== */
+
+.card,
+.service-card,
+.blog-card {
+  background-color: var(--navy-card);
+}
+
+/* ===== BUTTON ACCENT ===== */
+
+button,
+.btn-accent {
+  background-color: var(--gold);
+  color: black;
+}
+
+button:hover,
+.btn-accent:hover {
+  background-color: #b8954f;
+}
+
+/* ===== LINKS ===== */
+
+a {
+  color: var(--text-primary);
+}
+
+a:hover {
+  color: var(--gold);
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+  background-color: var(--navy-dark);
+}

@@ -2,66 +2,83 @@ export default function Services() {
 
   const services = [
     {
-      title: "Wedding Photography",
-      desc: "Capturing beautiful and emotional wedding moments with cinematic storytelling.",
-      icon: "📸"
+      title: "Photography",
+      desc: "Professional photography for weddings, events, portraits, and creative visual storytelling.",
+      icon: "📸",
+      features: [
+        "Wedding Stories",
+        "Event Coverage",
+        "Drone Photography",
+        "Creative Visual Content"
+      ]
     },
     {
-      title: "Pre-Wedding Shoots",
-      desc: "Creative pre-wedding shoots that tell your love story in a unique way.",
-      icon: "💍"
+      title: "Cinematic Films",
+      desc: "High-quality cinematic films crafted for weddings, brands, and storytelling projects.",
+      icon: "🎬",
+      features: [
+        "Music Videos",
+        "Short Films",
+        "Corporate Films",
+        "Documentaries"
+      ]
     },
     {
-      title: "Event Photography",
-      desc: "Professional coverage for birthdays, corporate events, and celebrations.",
-      icon: "🎉"
-    },
-    {
-      title: "Model / Portrait Shoots",
-      desc: "Professional portrait and model photography for portfolios and brands.",
-      icon: "🧑‍🎤"
-    },
-    {
-      title: "Social Media Marketing",
-      desc: "Helping businesses grow with strategic content and social media management.",
-      icon: "📱"
-    },
-    {
-      title: "Website Development",
-      desc: "Modern websites to help businesses establish a strong digital presence.",
-      icon: "💻"
+      title: "Creative Production",
+      desc: "Complete production workflow from idea to final delivery with professional editing.",
+      icon: "🚀",
+      features: [
+        "Social Media Reels",
+        "Content Creation",
+        "Creative Direction",
+        "Editing & Color Grading"
+      ]
     }
   ];
 
   return (
-    <section id="services" className="py-24 bg-[#0f0f0f] text-white">
+    <section id="services" className="py-32 bg-[#000F26] text-[#F5F7FA]">
 
       <div className="max-w-7xl mx-auto px-6">
 
-        <h2 className="text-4xl md:text-5xl font-bold mb-12">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-20">
           Services
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-12">
 
           {services.map((service, i) => (
 
             <div
               key={i}
-              className="p-8 rounded-xl border border-white/10 hover:border-[#C6A75E] transition duration-300"
+              className="p-10 rounded-2xl bg-[#071B3A] border border-[#1B3B6F] hover:border-[#C6A75E] transition-all duration-300 hover:-translate-y-2"
             >
 
-              <div className="text-3xl mb-4">
+              <div className="text-4xl mb-6">
                 {service.icon}
               </div>
 
-              <h3 className="text-xl font-semibold mb-3">
+              <h3 className="text-2xl font-semibold mb-4">
                 {service.title}
               </h3>
 
-              <p className="text-gray-400">
+              <p className="text-[#B8C4D9] mb-6">
                 {service.desc}
               </p>
+
+              <ul className="space-y-2 text-sm text-[#B8C4D9]">
+
+                {service.features.map((item, index) => (
+                  <li key={index} className="flex gap-2 items-center">
+
+                    <span className="text-[#C6A75E]">•</span>
+
+                    {item}
+
+                  </li>
+                ))}
+
+              </ul>
 
             </div>
 

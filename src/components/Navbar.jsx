@@ -2,68 +2,150 @@ import {
   Navbar,
   NavbarBrand,
   NavbarCollapse,
-  NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
 import logo from "../assets/logo.PNG";
 
 export default function AppNavbar() {
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Navbar
       fluid
       rounded={false}
-      className="bg-black/40 backdrop-blur-lg border-b border-white/10 fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-4 shadow-none"
+      className={`fixed top-0 left-0 w-full z-50 px-4 md:px-12 py-3 md:py-4 transition-all duration-300
+      ${
+        scrolled
+          ? "bg-[#000F26] border-b border-[#1B3B6F] shadow-md"
+          : "bg-[#000F26]/70 backdrop-blur-xl border-b border-transparent"
+      }`}
     >
+
       {/* Logo */}
-      <NavbarBrand as={Link} to="/" className="flex items-center gap-3">
-        <img src={logo} className="h-10 w-auto" alt="VV Productions Logo" />
-        <span className="text-lg md:text-xl font-semibold tracking-wide text-white">
+      <NavbarBrand as={NavLink} to="/" className="flex items-center gap-3">
+        <img
+          src={logo}
+          className="h-8 md:h-10 w-auto"
+          alt="VV Productions Logo"
+        />
+        <span className="text-base md:text-xl font-semibold tracking-wide text-[#F5F7FA]">
           VV Productions
         </span>
       </NavbarBrand>
 
       {/* Right Side */}
-      <div className="flex items-center gap-4 md:order-2 ">
+      <div className="flex items-center gap-3 md:gap-4 md:order-2">
 
-        <Link to="/Booking">
-          <button className="px-4 py-1.5 md:px-6 md:py-2 rounded-lg font-medium bg-[#C6A75E] text-black hover:bg-[#b8954f] transition">
+        <NavLink to="/booking">
+          <button className="px-4 py-1.5 md:px-6 md:py-2 text-sm md:text-base rounded-lg font-medium bg-[#C6A75E] text-black hover:bg-[#b8954f] transition duration-300 shadow-md">
             Book Now
           </button>
-        </Link>
+        </NavLink>
 
-        <NavbarToggle />
+        <NavbarToggle className="text-white hover:bg-[#1B3B6F] rounded-lg p-2" />
+
       </div>
 
-      {/* Links */}
-      <NavbarCollapse>
+      {/* Navigation Links */}
+      <NavbarCollapse
+        className="bg-[#000F26] md:bg-transparent border-0 md:gap-8
+        divide-y md:divide-none divide-[#1B3B6F]
+        transition-all duration-300 ease-in-out"
+      >
 
-        <NavbarLink as={Link} to="/">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `block py-3 md:py-0 transition-colors duration-300 ${
+              isActive
+                ? "text-[#C6A75E]"
+                : "text-[#B8C4D9] hover:text-[#C6A75E]"
+            }`
+          }
+        >
           Home
-        </NavbarLink>
+        </NavLink>
 
-        <NavbarLink as={Link} to="/portfolio">
+        <NavLink
+          to="/portfolio"
+          className={({ isActive }) =>
+            `block py-3 md:py-0 transition-colors duration-300 ${
+              isActive
+                ? "text-[#C6A75E]"
+                : "text-[#B8C4D9] hover:text-[#C6A75E]"
+            }`
+          }
+        >
           Portfolio
-        </NavbarLink>
+        </NavLink>
 
-        <NavbarLink as={Link} to="/services">
+        <NavLink
+          to="/services"
+          className={({ isActive }) =>
+            `block py-3 md:py-0 transition-colors duration-300 ${
+              isActive
+                ? "text-[#C6A75E]"
+                : "text-[#B8C4D9] hover:text-[#C6A75E]"
+            }`
+          }
+        >
           Services
-        </NavbarLink>
+        </NavLink>
 
-        <NavbarLink as={Link} to="/about">
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            `block py-3 md:py-0 transition-colors duration-300 ${
+              isActive
+                ? "text-[#C6A75E]"
+                : "text-[#B8C4D9] hover:text-[#C6A75E]"
+            }`
+          }
+        >
           About
-        </NavbarLink>
+        </NavLink>
 
-        <NavbarLink as={Link} to="/blog">
+        <NavLink
+          to="/blog"
+          className={({ isActive }) =>
+            `block py-3 md:py-0 transition-colors duration-300 ${
+              isActive
+                ? "text-[#C6A75E]"
+                : "text-[#B8C4D9] hover:text-[#C6A75E]"
+            }`
+          }
+        >
           Blog
-        </NavbarLink>
+        </NavLink>
 
-        <NavbarLink as={Link} to="/contact">
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            `block py-3 md:py-0 transition-colors duration-300 ${
+              isActive
+                ? "text-[#C6A75E]"
+                : "text-[#B8C4D9] hover:text-[#C6A75E]"
+            }`
+          }
+        >
           Contact
-        </NavbarLink>
+        </NavLink>
 
       </NavbarCollapse>
+
     </Navbar>
   );
 }

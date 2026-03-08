@@ -34,7 +34,7 @@ export default function Hero() {
       ))}
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+      <div className="absolute inset-0bg-gradient-to-r from-[#000F26]/85 via-[#000F26]/50 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 flex items-center h-full max-w-7xl mx-auto px-6">

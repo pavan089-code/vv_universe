@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function Booking() {
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -30,7 +31,7 @@ export default function Booking() {
     }
 
     try {
-      const res = await fetch("https://vv-universe.onrender.com/api/bookings", {
+      const res = await fetch(`${API_URL}/api/bookings`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

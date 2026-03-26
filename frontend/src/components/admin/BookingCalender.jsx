@@ -3,11 +3,12 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
 const BookingCalendar = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [bookings, setBookings] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const fetchBookings = async () => {
-    const res = await fetch("https://vv-universe.onrender.com/api/bookings");
+    const res = await fetch(`${API_URL}/api/bookings`);
     const data = await res.json();
     setBookings(data);
   };

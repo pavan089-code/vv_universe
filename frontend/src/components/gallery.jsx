@@ -4,11 +4,12 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 
 const Gallery = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState("All");
 
   const fetchImages = async () => {
-    const res = await fetch("https://vv-universe.onrender.com/api/portfolio");
+    const res = await fetch(`${API_URL}/api/portfolio`);
     const data = await res.json();
     setImages(data);
   };

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 
 const AdminReviews = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [reviews, setReviews] = useState([]);
 
   const fetchReviews = async () => {
-    const res = await fetch("https://vv-universe.onrender.com/api/reviews/all");
+    const res = await fetch(`${API_URL}/api/reviews/all`);
     const data = await res.json();
 
     setReviews(data);
@@ -15,7 +16,7 @@ const AdminReviews = () => {
   }, []);
 
   const approveReview = async (id) => {
-    await fetch(`https://vv-universe.onrender.com/api/reviews/${id}`, {
+    await fetch(`${API_URL}/api/reviews/${id}`, {
       method: "PATCH",
     });
 
@@ -23,7 +24,7 @@ const AdminReviews = () => {
   };
 
   const deleteReview = async (id) => {
-    await fetch(`https://vv-universe.onrender.com/api/reviews/${id}`, {
+    await fetch(`${API_URL}/api/reviews/${id}`, {
       method: "DELETE",
     });
 

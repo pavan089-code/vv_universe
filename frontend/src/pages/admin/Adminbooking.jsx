@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const AdminBookings = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [bookings, setBookings] = useState([]);
   const [search, setSearch] = useState("");
   const [eventFilter, setEventFilter] = useState("all");
@@ -9,7 +10,7 @@ const AdminBookings = () => {
 
   const fetchBookings = async () => {
     try {
-      const res = await fetch("https://vv-universe.onrender.com/api/bookings");
+      const res = await fetch(`${API_URL}/api/bookings`);
       const data = await res.json();
       setBookings(data);
       setLoading(false);
@@ -29,7 +30,7 @@ const AdminBookings = () => {
   };
 
   const updateStatus = async (id, status) => {
-    await fetch(`https://vv-universe.onrender.com/api/bookings/${id}/status`, {
+    await fetch(`${API_URL}/api/bookings/${id}/status`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status }),
@@ -45,7 +46,7 @@ const AdminBookings = () => {
 
     if (!confirmDelete) return;
 
-    await fetch(`https://vv-universe.onrender.com/api/bookings/${id}`, { method: "DELETE" });
+    await fetch(`${API_URL}/api/bookings/${id}`, { method: "DELETE" });
 
     fetchBookings();
   };

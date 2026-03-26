@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 
 const Reviews = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [reviews, setReviews] = useState([]);
 
   const fetchReviews = async () => {
-    const res = await fetch("https://vv-universe.onrender.com/api/reviews");
+    const res = await fetch(`${API_URL}/api/reviews`);
     const data = await res.json();
 
     setReviews(data);

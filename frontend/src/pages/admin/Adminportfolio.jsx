@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 
 const AdminPortfolio = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState("All");
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
 
   const fetchImages = async () => {
-    const res = await fetch("https://vv-universe.onrender.com/api/portfolio");
+    const res = await fetch(`${API_URL}/api/portfolio`);
     const data = await res.json();
 
     setImages(data);
@@ -31,7 +32,7 @@ const AdminPortfolio = () => {
     formData.append("image", file);
     formData.append("category", category);
 
-    await fetch("https://vv-universe.onrender.com/api/portfolio", {
+    await fetch(`${API_URL}/api/portfolio`, {
       method: "POST",
       body: formData,
     });
@@ -40,7 +41,7 @@ const AdminPortfolio = () => {
   };
 
   const deleteImage = async (id) => {
-    await fetch(`https://vv-universe.onrender.com/api/portfolio/${id}`, {
+    await fetch(`${API_URL}/api/portfolio/${id}`, {
       method: "DELETE",
     });
 

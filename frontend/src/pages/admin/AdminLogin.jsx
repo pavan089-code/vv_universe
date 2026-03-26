@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,7 +11,7 @@ const AdminLogin = () => {
   const handleLogin = async (e) => {
   e.preventDefault();
 
-  const res = await fetch("https://vv-universe.onrender.com/api/admin/login", {
+  const res = await fetch(`${API_URL}/api/admin/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

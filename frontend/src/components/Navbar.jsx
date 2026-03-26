@@ -26,12 +26,13 @@ export default function AppNavbar() {
     <Navbar
       fluid
       rounded={false}
-      className={`fixed top-0 left-0 w-full z-50 px-4 md:px-12 py-3 md:py-4 transition-all duration-300
+      className={`fixed top-0 left-0 w-full z-50 px-2 sm:px-4 md:px-12 py-2 md:py-4 transition-all duration-300
       ${
         scrolled
           ? "bg-[#000F26] border-b border-[#1B3B6F] shadow-md"
           : "bg-[#000F26]/70 backdrop-blur-xl border-b border-transparent"
       }`}
+      style={{ backdropFilter: "blur(12px)" }}
     >
 
       {/* Logo */}
@@ -47,10 +48,10 @@ export default function AppNavbar() {
       </NavbarBrand>
 
       {/* Right Side */}
-      <div className="flex items-center gap-3 md:gap-4 md:order-2">
+      <div className="flex items-center gap-2 sm:gap-3 md:gap-4 md:order-2">
 
-        <NavLink to="/booking">
-          <button className="px-4 py-1.5 md:px-6 md:py-2 text-sm md:text-base rounded-lg font-medium bg-[#C6A75E] text-black hover:bg-[#b8954f] transition duration-300 shadow-md">
+        <NavLink to="/booking" className="hidden sm:inline-block">
+          <button className="px-3 py-1.5 sm:px-5 sm:py-2 text-xs sm:text-sm md:text-base rounded-lg font-medium bg-[#C6A75E] text-black hover:bg-[#b8954f] transition duration-300 shadow-md">
             Book Now
           </button>
         </NavLink>
@@ -61,8 +62,8 @@ export default function AppNavbar() {
 
       {/* Navigation Links */}
       <NavbarCollapse
-        className="bg-[#000F26] md:bg-transparent border-0 md:gap-8
-        divide-y md:divide-none divide-[#1B3B6F]
+        className="w-full sm:w-auto bg-[#000F26] md:bg-transparent border-0 md:gap-8
+        divide-y md:divide-none divide-[#1B3B6F] py-2 sm:py-0 px-4 sm:px-0
         transition-all duration-300 ease-in-out"
       >
 

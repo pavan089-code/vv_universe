@@ -7,7 +7,7 @@ const BookingCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const fetchBookings = async () => {
-    const res = await fetch("http://localhost:5000/api/bookings");
+    const res = await fetch("https://vv-universe.onrender.com/api/bookings");
     const data = await res.json();
     setBookings(data);
   };

@@ -8,7 +8,7 @@ const Gallery = () => {
   const [category, setCategory] = useState("All");
 
   const fetchImages = async () => {
-    const res = await fetch("http://localhost:5000/api/portfolio");
+    const res = await fetch("https://vv-universe.onrender.com/api/portfolio");
     const data = await res.json();
     setImages(data);
   };

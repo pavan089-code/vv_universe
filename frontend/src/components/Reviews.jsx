@@ -4,7 +4,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   const fetchReviews = async () => {
-    const res = await fetch("http://localhost:5000/api/reviews");
+    const res = await fetch("https://vv-universe.onrender.com/api/reviews");
     const data = await res.json();
 
     setReviews(data);

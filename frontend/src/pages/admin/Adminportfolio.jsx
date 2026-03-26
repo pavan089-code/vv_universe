@@ -7,7 +7,7 @@ const AdminPortfolio = () => {
   const [preview, setPreview] = useState(null);
 
   const fetchImages = async () => {
-    const res = await fetch("http://localhost:5000/api/portfolio");
+    const res = await fetch("https://vv-universe.onrender.com/api/portfolio");
     const data = await res.json();
 
     setImages(data);
@@ -31,7 +31,7 @@ const AdminPortfolio = () => {
     formData.append("image", file);
     formData.append("category", category);
 
-    await fetch("http://localhost:5000/api/portfolio", {
+    await fetch("https://vv-universe.onrender.com/api/portfolio", {
       method: "POST",
       body: formData,
     });
@@ -40,7 +40,7 @@ const AdminPortfolio = () => {
   };
 
   const deleteImage = async (id) => {
-    await fetch(`http://localhost:5000/api/portfolio/${id}`, {
+    await fetch(`https://vv-universe.onrender.com/api/portfolio/${id}`, {
       method: "DELETE",
     });
 

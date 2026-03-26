@@ -9,7 +9,7 @@ const AdminBookings = () => {
 
   const fetchBookings = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/bookings");
+      const res = await fetch("https://vv-universe.onrender.com/api/bookings");
       const data = await res.json();
       setBookings(data);
       setLoading(false);
@@ -29,7 +29,7 @@ const AdminBookings = () => {
   };
 
   const updateStatus = async (id, status) => {
-    await fetch(`http://localhost:5000/api/bookings/${id}/status`, {
+    await fetch(`https://vv-universe.onrender.com/api/bookings/${id}/status`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status }),
@@ -45,7 +45,7 @@ const AdminBookings = () => {
 
     if (!confirmDelete) return;
 
-    await fetch(`/api/bookings/${id}`, { method: "DELETE" });
+    await fetch(`https://vv-universe.onrender.com/api/bookings/${id}`, { method: "DELETE" });
 
     fetchBookings();
   };

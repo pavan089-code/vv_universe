@@ -4,7 +4,7 @@ const AdminReviews = () => {
   const [reviews, setReviews] = useState([]);
 
   const fetchReviews = async () => {
-    const res = await fetch("http://localhost:5000/api/reviews/all");
+    const res = await fetch("https://vv-universe.onrender.com/api/reviews/all");
     const data = await res.json();
 
     setReviews(data);
@@ -15,7 +15,7 @@ const AdminReviews = () => {
   }, []);
 
   const approveReview = async (id) => {
-    await fetch(`http://localhost:5000/api/reviews/${id}`, {
+    await fetch(`https://vv-universe.onrender.com/api/reviews/${id}`, {
       method: "PATCH",
     });
 
@@ -23,7 +23,7 @@ const AdminReviews = () => {
   };
 
   const deleteReview = async (id) => {
-    await fetch(`http://localhost:5000/api/reviews/${id}`, {
+    await fetch(`https://vv-universe.onrender.com/api/reviews/${id}`, {
       method: "DELETE",
     });
 

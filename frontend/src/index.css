@@ -30,4 +30,25 @@ button{
 body {
   background-color: #000F26;
   color: #B8C4D9;
+  background-image: url('./public/bgimage.jpeg');
+  background-size: cover;
+}
+
+.react-calendar {
+  background: #111827;
+  border: none;
+  color: white;
+}
+
+.react-calendar__tile {
+  color: white;
+}
+
+.react-calendar__navigation button {
+  color: white;
+}
+
+.react-calendar__tile--active {
+  background: #facc15;
+  color: black;
 }

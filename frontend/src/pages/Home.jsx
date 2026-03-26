@@ -4,6 +4,7 @@ import Services from "./Services";
 import About from "./About";
 import Reviews from "../components/Reviews";
 import Booking from "../components/booknow";
+import Gallery from "../components/gallery";
 
 export default function Home() {
   return (
@@ -11,9 +12,9 @@ export default function Home() {
       <Hero />
       <Portfolio />
       <Services />
-      {/* <About /> */}
       <Reviews />
       {/* <Booking /> */}
+      {/* <Gallery /> */}
     </>
   );
 }

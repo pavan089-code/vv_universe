@@ -15,7 +15,7 @@ export default function LogoVideo() {
         transition={{ duration: 12, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
         className="absolute w-full h-full object-cover"
       >
-        <source src="./src/assets/logovv.mp4" type="video/mp4" />
+        <source src="/logovv.mp4" type="video/mp4" />
       </motion.video>
 
       {/* 🎬 Cinematic layered overlays */}

@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex items-center gap-3">
             <img
-              src="./public/logo2.png"
+              src="/logo2.PNG"
               className="w-9 h-9 rounded-full"
               alt="VV Productions"
             />

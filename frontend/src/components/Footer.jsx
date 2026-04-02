@@ -1,111 +1,99 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowTop(window.scrollY > 400);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <footer className="bg-[#000F26] text-[#B8C4D9] border-t border-[#1B3B6F]">
+    <footer className="relative bg-[#050A14] text-gray-400 border-t border-white/10">
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 py-10">
 
-        {/* Top Section */}
-        <div className="grid md:grid-cols-3 gap-10">
+        {/* 🔥 MAIN ROW */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
 
           {/* Brand */}
-          <div>
-            <h3 className="text-2xl font-semibold text-[#F5F7FA] mb-4">
+          <div className="flex items-center gap-3">
+            <img
+              src="./public/logo2.png"
+              className="w-9 h-9 rounded-full"
+              alt="VV Productions"
+            />
+            <span className="text-white font-semibold">
               VV Productions
-            </h3>
-
-            <p className="max-w-sm">
-              Capturing timeless stories through creative photography and cinematic films.
-              Weddings, celebrations, and unforgettable moments.
-            </p>
+            </span>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold text-[#F5F7FA] mb-4">
-              Quick Links
-            </h4>
+          {/* Tagline */}
+          <p className="text-sm text-center md:text-left max-w-md">
+            Capturing real moments through cinematic storytelling.
+          </p>
 
-            <div className="flex flex-col gap-3">
+          {/* Socials */}
+          <div className="flex gap-5 text-sm">
 
-              <Link to="/" className="hover:text-[#C6A75E] transition">
-                Home
-              </Link>
+            <a
+              href="#"
+              className="hover:text-[#C6A75E] transition"
+            >
+              Facebook
+            </a>
 
-              <Link to="/portfolio" className="hover:text-[#C6A75E] transition">
-                Portfolio
-              </Link>
+            <a
+              href="https://www.instagram.com/vv_productions223"
+              target="_blank"
+              className="hover:text-[#C6A75E] transition"
+            >
+              Instagram
+            </a>
 
-              <Link to="/services" className="hover:text-[#C6A75E] transition">
-                Services
-              </Link>
-
-              <Link to="/about" className="hover:text-[#C6A75E] transition">
-                About
-              </Link>
-
-              <Link to="/contact" className="hover:text-[#C6A75E] transition">
-                Contact
-              </Link>
-
-            </div>
-          </div>
-
-          {/* Social Links */}
-          <div>
-            <h4 className="text-lg font-semibold text-[#F5F7FA] mb-4">
-              Follow Us
-            </h4>
-
-            <div className="flex gap-6">
-
-              <a
-                href="#"
-                className="hover:text-[#C6A75E] transition"
-              >
-                Facebook
-              </a>
-
-              <a
-                href="https://www.instagram.com/vv_productions223?igsh=MW1hdmhldXM2Mjh5eg=="
-                target="_blank"
-                className="hover:text-[#C6A75E] transition"
-              >
-                Instagram
-              </a>
-
-              <a
-                href="#"
-                className="hover:text-[#C6A75E] transition"
-              >
-                Twitter
-              </a>
-
-            </div>
+            <a
+              href="#"
+              className="hover:text-[#C6A75E] transition"
+            >
+              Twitter
+            </a>
 
           </div>
 
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-[#1B3B6F] my-10" />
+        {/* 🔥 DIVIDER */}
+        <div className="border-t border-white/10 my-6" />
 
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm gap-4">
+        {/* 🔥 BOTTOM */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-xs gap-4">
 
           <p>
-            © {new Date().getFullYear()} VV Productions. All rights reserved.
+            © {new Date().getFullYear()} VV Productions
           </p>
 
-          <p className="text-[#B8C4D9]">
-            Designed with passion.
+          <p className="text-gray-500">
+            Crafted with passion 🎬
           </p>
 
         </div>
 
       </div>
 
+      {/* 🔥 SCROLL TO TOP */}
+      {showTop && (
+        <button
+          onClick={() =>
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }
+          className="fixed bottom-6 right-6 z-50 
+          p-3 rounded-full bg-[#C6A75E] text-black 
+          shadow-lg hover:scale-110 transition"
+        >
+          ↑
+        </button>
+      )}
     </footer>
   );
 }

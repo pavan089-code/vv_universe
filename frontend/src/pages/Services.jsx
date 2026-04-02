@@ -1,91 +1,125 @@
-export default function Services() {
+import { motion } from "framer-motion";
 
+export default function Services() {
   const services = [
     {
-      title: "Photography",
-      desc: "Professional photography for weddings, events, portraits, and creative visual storytelling.",
-      icon: "📸",
-      features: [
+      title: "Visual Production",
+      subtitle: "Cinematic storytelling & visual excellence",
+      items: [
         "Wedding Stories",
         "Event Coverage",
         "Drone Photography",
-        "Creative Visual Content"
-      ]
-    },
-    {
-      title: "Cinematic Films",
-      desc: "High-quality cinematic films crafted for weddings, brands, and storytelling projects.",
-      icon: "🎬",
-      features: [
+        "Creative Visual Content",
         "Music Videos",
         "Short Films",
         "Corporate Films",
-        "Documentaries"
-      ]
+        "Documentaries",
+      ],
     },
     {
-      title: "Creative Production",
-      desc: "Complete production workflow from idea to final delivery with professional editing.",
-      icon: "🚀",
-      features: [
-        "Social Media Reels",
+      title: "Event Planning",
+      subtitle: "Crafting unforgettable experiences",
+      items: [
+        "Wedding Planning",
+        "Corporate Events",
+        "Private Celebrations",
+        "Full Event Management",
+      ],
+    },
+    {
+      title: "Digital Marketing",
+      subtitle: "Growing your brand with strategy & creativity",
+      items: [
+        "Social Media Management",
         "Content Creation",
-        "Creative Direction",
-        "Editing & Color Grading"
-      ]
-    }
+        "Brand Strategy",
+        "Ad Campaigns",
+      ],
+    },
   ];
 
   return (
-    <section id="services" className="py-32 bg-[#000F26] text-[#F5F7FA]">
+    <section className="bg-[#050A14] text-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
 
-      <div className="max-w-7xl mx-auto px-6">
+      {/* 🎬 HEADER */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-center mb-14 md:mb-20"
+      >
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          Our Services
+        </h1>
+        <p className="text-gray-400 max-w-xl mx-auto">
+          From cinematic storytelling to full-scale event planning and digital growth — we deliver complete creative solutions.
+        </p>
+      </motion.div>
 
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-20">
-          Services
-        </h2>
+      {/* 🔥 SERVICES BLOCKS */}
+      <div className="max-w-6xl mx-auto space-y-16">
 
-        <div className="grid md:grid-cols-3 gap-12">
+        {services.map((service, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.2 }}
+            className="relative group"
+          >
 
-          {services.map((service, i) => (
+            {/* Glow background */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-[#C6A75E]/10 to-transparent blur-2xl" />
 
-            <div
-              key={i}
-              className="p-10 rounded-2xl bg-[#071B3A] border border-[#1B3B6F] hover:border-[#C6A75E] transition-all duration-300 hover:-translate-y-2"
-            >
+            {/* Card */}
+            <div className="relative z-10 p-6 sm:p-8 md:p-10 rounded-2xl 
+              bg-white/5 backdrop-blur-lg border border-white/10 
+              hover:border-[#C6A75E]/40 transition duration-500">
 
-              <div className="text-4xl mb-6">
-                {service.icon}
-              </div>
-
-              <h3 className="text-2xl font-semibold mb-4">
+              {/* Title */}
+              <h2 className="text-2xl md:text-3xl font-semibold mb-2">
                 {service.title}
-              </h3>
+              </h2>
 
-              <p className="text-[#B8C4D9] mb-6">
-                {service.desc}
+              {/* Subtitle */}
+              <p className="text-gray-400 mb-6">
+                {service.subtitle}
               </p>
 
-              <ul className="space-y-2 text-sm text-[#B8C4D9]">
+              {/* Items Grid */}
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
 
-                {service.features.map((item, index) => (
-                  <li key={index} className="flex gap-2 items-center">
-
-                    <span className="text-[#C6A75E]">•</span>
-
+                {service.items.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="px-4 py-3 rounded-lg bg-black/40 border border-white/5 
+                    hover:border-[#C6A75E]/40 hover:bg-black/60 
+                    transition duration-300 text-sm text-gray-300"
+                  >
                     {item}
-
-                  </li>
+                  </div>
                 ))}
 
-              </ul>
+              </div>
 
             </div>
+          </motion.div>
+        ))}
 
-          ))}
+      </div>
 
-        </div>
-
+      {/* 🎯 CTA */}
+      <div className="mt-20 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-3xl font-semibold mb-4">
+          Ready to bring your vision to life?
+        </h2>
+        <a
+          href="/booking"
+          className="inline-block w-full sm:w-auto px-6 py-3 bg-[#C6A75E] text-black font-semibold rounded-lg 
+          hover:scale-105 hover:shadow-lg hover:shadow-[#C6A75E]/40 transition"
+        >
+          Book Now
+        </a>
       </div>
 
     </section>

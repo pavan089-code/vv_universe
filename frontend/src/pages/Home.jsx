@@ -1,20 +1,16 @@
 import Hero from "../components/hero";
-import Portfolio from "./Portfolio";
-import Services from "./Services";
+import LogoVideo from "../components/logovid";
 import About from "./About";
-import Reviews from "../components/Reviews";
-import Booking from "../components/booknow";
-import Gallery from "../components/gallery";
+import Services from "./Services";
+import Portfolio from "./Portfolio";
+import SocialMedia from "../components/SocialMedia";
 
 export default function Home() {
   return (
     <>
-      <Hero />
-      <Portfolio />
-      <Services />
-      <Reviews />
-      {/* <Booking /> */}
-      {/* <Gallery /> */}
+      <LogoVideo />   {/* Logo + Tagline */}
+      <Services />    {/* Mini services */}
+      <SocialMedia /> {/* Social media links */}
     </>
   );
 }

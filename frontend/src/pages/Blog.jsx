@@ -23,7 +23,7 @@ export default function Blog() {
   ];
 
   return (
-    <section id="blog" className="py-28 bg-[#000F26] text-[#F5F7FA]">
+    <section id="blog" className="py-28 bg-transparent text-[#F5F7FA]">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -37,7 +37,7 @@ export default function Blog() {
 
             <div
               key={i}
-              className="bg-[#071B3A] border border-[#1B3B6F] rounded-2xl overflow-hidden hover:border-[#C6A75E] hover:-translate-y-2 transition-all duration-300"
+              className="bg-transparent border border-[#1B3B6F] rounded-2xl overflow-hidden hover:border-[#C6A75E] hover:-translate-y-2 transition-all duration-300"
             >
 
               {/* Blog Image */}

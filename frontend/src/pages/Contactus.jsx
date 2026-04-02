@@ -1,74 +1,129 @@
+import { motion } from "framer-motion";
+import { useState } from "react";
+
 export default function Contact() {
+  const [focused, setFocused] = useState(null);
+
   return (
-    <section id="contact" className="py-28 bg-[#000F26] text-[#F5F7FA]">
+    <section className="relative py-16 sm:py-20 md:py-28 bg-[#050A14] text-[#F5F7FA] overflow-hidden">
+      {/* 🎬 Background Glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#050A14] to-black opacity-90" />
+      <motion.div
+        animate={{ opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 8, repeat: Infinity }}
+        className="absolute top-[-150px] left-1/2 -translate-x-1/2 
+        w-[600px] h-[600px] bg-[#C6A75E]/10 blur-[120px] rounded-full"
+      />
 
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
-
-        {/* Contact Info */}
-        <div className="space-y-8">
-
-          <h2 className="text-4xl md:text-5xl font-bold">
-            Contact Us
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 md:grid-cols-2 items-start">
+        {/* 🔥 LEFT SIDE */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="space-y-8"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            Let’s Create Something{" "}
+            <span className="text-[#C6A75E]">Meaningful</span>
           </h2>
 
-          <p className="text-[#B8C4D9] max-w-md">
-            Have an event coming up? Let's capture your special moments.
-            Reach out through phone, email, or send us a message below.
+          <p className="text-[#B8C4D9] max-w-full sm:max-w-md leading-relaxed">
+            Whether it’s a wedding, an event, or a creative project — I’d love
+            to hear your story and help you capture it in a way that feels real
+            and timeless.
           </p>
 
-          <div className="space-y-5 text-[#B8C4D9]">
+          {/* Contact Info */}
+          <div className="space-y-6 pt-4">
+            <div className="flex items-center gap-4 group">
+              <div className="p-3 rounded-lg bg-[#C6A75E]/10 group-hover:bg-[#C6A75E]/20 transition">
+                📞
+              </div>
+              <p className="text-gray-300 group-hover:text-white transition">
+                +91 9966233224
+              </p>
+            </div>
 
-            <p className="flex text-[#C6A75E] items-center gap-3">
-              <span className="text-[#C6A75E] text-xl">📞</span>
-              +91 9966233224
-            </p>
+            <div className="flex items-center gap-4 group">
+              <div className="p-3 rounded-lg bg-[#C6A75E]/10 group-hover:bg-[#C6A75E]/20 transition">
+                📧
+              </div>
+              <p className="text-gray-300 group-hover:text-white transition">
+                vvproductions@gmail.com
+              </p>
+            </div>
 
-            <p className="flex items-center gap-3">
-              <span className="text-[#C6A75E] text-xl">📧</span>
-              vvproductions@gmail.com
-            </p>
-
-            <p className="flex items-center gap-3">
-              <span className="text-[#C6A75E] text-xl">📍</span>
-              Hyderabad, India
-            </p>
-
+            <div className="flex items-center gap-4 group">
+              <div className="p-3 rounded-lg bg-[#C6A75E]/10 group-hover:bg-[#C6A75E]/20 transition">
+                📍
+              </div>
+              <p className="text-gray-300 group-hover:text-white transition">
+                Hyderabad, India
+              </p>
+            </div>
           </div>
+        </motion.div>
 
-        </div>
+        {/* 🎬 FORM */}
+        <motion.form
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="relative p-10 rounded-2xl 
+          bg-white/5 backdrop-blur-xl border border-white/10 
+          shadow-[0_0_40px_rgba(0,0,0,0.4)] 
+          grid gap-6"
+        >
+          {/* Glow border hover */}
+          <div
+            className="absolute inset-0 rounded-2xl opacity-0 hover:opacity-100 transition 
+bg-gradient-to-r from-[#C6A75E]/20 to-transparent blur-xl pointer-events-none"
+          />
 
-        {/* Contact Form */}
-        <form className="p-10 bg-[#071B3A] border border-[#1B3B6F] rounded-2xl grid gap-6">
-
+          {/* Input */}
           <input
             type="text"
             placeholder="Your Name"
-            className="p-4 bg-[#000F26] border border-[#1B3B6F] rounded-lg focus:outline-none focus:border-[#C6A75E] text-[#F5F7FA]"
+            onFocus={() => setFocused("name")}
+            onBlur={() => setFocused(null)}
+            className={`p-4 rounded-lg bg-black/40 border transition 
+            ${focused === "name" ? "border-[#C6A75E]" : "border-white/10"}
+            focus:outline-none text-white`}
           />
 
           <input
             type="email"
             placeholder="Your Email"
-            className="p-4 bg-[#000F26] border border-[#1B3B6F] rounded-lg focus:outline-none focus:border-[#C6A75E] text-[#F5F7FA]"
+            onFocus={() => setFocused("email")}
+            onBlur={() => setFocused(null)}
+            className={`p-4 rounded-lg bg-black/40 border transition 
+            ${focused === "email" ? "border-[#C6A75E]" : "border-white/10"}
+            focus:outline-none text-white`}
           />
 
           <textarea
             rows="4"
-            placeholder="Your Message"
-            className="p-4 bg-[#000F26] border border-[#1B3B6F] rounded-lg focus:outline-none focus:border-[#C6A75E] text-[#F5F7FA]"
-          ></textarea>
+            placeholder="Tell me about your project..."
+            onFocus={() => setFocused("message")}
+            onBlur={() => setFocused(null)}
+            className={`p-4 rounded-lg bg-black/40 border transition 
+            ${focused === "message" ? "border-[#C6A75E]" : "border-white/10"}
+            focus:outline-none text-white`}
+          />
 
+          {/* Button */}
           <button
             type="submit"
-            className="px-8 py-4 bg-[#C6A75E] text-black font-semibold rounded-lg hover:bg-[#b8964f] transition"
+            className="relative px-8 py-4 rounded-lg font-semibold 
+            bg-[#C6A75E] text-black 
+            hover:scale-105 hover:shadow-lg hover:shadow-[#C6A75E]/40 
+            transition duration-300"
           >
             Send Message
           </button>
-
-        </form>
-
+        </motion.form>
       </div>
-
     </section>
   );
 }

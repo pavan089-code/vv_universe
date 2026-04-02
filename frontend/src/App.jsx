@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import StarBackground from "./components/StarBackground.jsx";
 import MainLayout from "./layouts/MainLayout";
 import AdminLayout from "./layouts/AdminLayout";
 
@@ -23,6 +24,9 @@ import ProtectedRoute from "./components/admin/AdminprotectedRoutes.jsx";
 function App() {
   return (
     <>
+      <StarBackground />
+
+      <div className="relative z-10">
       <ToastContainer position="top-right" />
       <Routes>
         {/* PUBLIC WEBSITE */}
@@ -76,6 +80,7 @@ function App() {
         {/* ADMIN Reviews */}
         <Route path="/admin/reviews" element={<AdminReviews />} />
       </Routes>
+      </div>
     </>
   );
 }

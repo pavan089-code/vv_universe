@@ -12,6 +12,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body {
+  overflow-x: hidden;
+  min-width: 0;
+}
+
 /* Section Title */
 .section-title {
   @apply text-4xl md:text-5xl font-bold text-[#F5F5F5] text-center;
@@ -30,25 +35,6 @@ button{
 body {
   background-color: #000F26;
   color: #B8C4D9;
-  background-image: url('./public/bgimage.jpeg');
   background-size: cover;
 }
 
-.react-calendar {
-  background: #111827;
-  border: none;
-  color: white;
-}
-
-.react-calendar__tile {
-  color: white;
-}
-
-.react-calendar__navigation button {
-  color: white;
-}
-
-.react-calendar__tile--active {
-  background: #facc15;
-  color: black;
-}

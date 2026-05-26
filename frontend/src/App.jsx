@@ -20,6 +20,7 @@ import AdminDashboard from "./pages/admin/Admindashboard.jsx";
 import AdminReviews from "./pages/admin/AdminReviews.jsx";
 import AdminPortfolio from "./pages/admin/Adminportfolio.jsx";
 import ProtectedRoute from "./components/admin/AdminprotectedRoutes.jsx";
+import JamSession from "./pages/JamSession.jsx";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/booking" element={<Booking />} />
+          <Route path="/jamsession" element={<JamSession />} />
         </Route>
 
         {/* ADMIN LOGIN (no layout) */}

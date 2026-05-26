@@ -17,7 +17,7 @@ export default function ParallaxHero() {
       <div
         className="absolute inset-0 bg-cover bg-center scale-110"
         style={{
-          backgroundImage: "url('/hero.jpg')",
+          backgroundImage: "url('/bgimage.jpeg')",
           transform: `translateY(${offset * 0.5}px)`
         }}
       />

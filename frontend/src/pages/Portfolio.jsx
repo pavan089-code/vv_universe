@@ -37,7 +37,7 @@ export default function Portfolio() {
       {/* 🎬 HERO */}
       <div className="relative h-[50vh] sm:h-[55vh] md:h-[60vh] w-full overflow-hidden">
         <video
-          src="/showreel.mp4"
+          src="/logovv.mp4"
           autoPlay
           loop
           muted

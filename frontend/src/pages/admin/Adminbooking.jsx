@@ -66,37 +66,37 @@ const AdminBookings = () => {
   });
 
   return (
-    <div className="p-10 text-white">
+    <div className="p-0 text-white sm:p-4 lg:p-6">
       {/* Action Bar */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Client Bookings</h1>
+      <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <h1 className="text-2xl font-bold sm:text-3xl">Client Bookings</h1>
 
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
           <button
             onClick={fetchBookings}
-            className="bg-gray-800 px-4 py-2 rounded hover:bg-gray-700"
+            className="min-h-11 rounded bg-gray-800 px-4 py-2 hover:bg-gray-700"
           >
             Refresh
           </button>
 
-          <button className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-500">
+          <button className="min-h-11 rounded bg-blue-600 px-4 py-2 hover:bg-blue-500">
             Export CSV
           </button>
         </div>
       </div>
 
       {/* Filters */}
-      <div className="flex gap-4 mb-6 flex-wrap">
+      <div className="mb-6 flex flex-wrap gap-4">
         <input
           type="text"
           placeholder="Search client..."
-          className="p-2 rounded bg-gray-800 text-white"
+          className="min-h-11 w-full rounded bg-gray-800 p-2 text-white sm:w-auto"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
 
         <select
-          className="p-2 rounded bg-gray-800"
+          className="min-h-11 w-full rounded bg-gray-800 p-2 sm:w-auto"
           value={eventFilter}
           onChange={(e) => setEventFilter(e.target.value)}
         >
@@ -106,7 +106,7 @@ const AdminBookings = () => {
         </select>
 
         <select
-          className="p-2 rounded bg-gray-800"
+          className="min-h-11 w-full rounded bg-gray-800 p-2 sm:w-auto"
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
         >
@@ -118,8 +118,9 @@ const AdminBookings = () => {
       </div>
 
       {/* Table Card */}
-      <div className="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-        <table className="w-full">
+      <div className="overflow-hidden rounded-xl border border-gray-800 bg-gray-900">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[760px]">
           <thead className="text-gray-400 border-b border-gray-700">
             <tr>
               <th className="text-left py-3 px-4">Client</th>
@@ -183,7 +184,7 @@ const AdminBookings = () => {
                   </td>
 
                   {/* Actions */}
-                  <td className="space-x-2">
+                  <td className="space-x-2 whitespace-nowrap">
                     <button
                       disabled={booking.status === "approved"}
                       onClick={() => updateStatus(booking._id, "approved")}
@@ -212,6 +213,7 @@ const AdminBookings = () => {
             )}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

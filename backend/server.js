@@ -8,6 +8,7 @@ import bookingRoutes from "./routes/bookingRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import portfolioRoutes from "./routes/portfolioRoutes.js";
 import reviewRoutes from "./routes/reviewRoutes.js";
+import jamRoutes from "./routes/jamRoutes.js";
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/portfolio", portfolioRoutes);
 app.use("/api/reviews", reviewRoutes);
+app.use("/api/jam", jamRoutes);
 
 // test route
 app.get("/", (req, res) => {

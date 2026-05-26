@@ -18,7 +18,8 @@ const RecentBookings = ({ bookings }) => {
     <div className="bg-gray-900 p-6 rounded-xl shadow">
       <h2 className="text-lg font-semibold mb-4">Recent Bookings</h2>
 
-      <table className="w-full">
+      <div className="overflow-x-auto">
+      <table className="w-full min-w-[620px]">
         <thead className="text-gray-400 border-b border-gray-700">
           <tr>
             <th className="text-left py-3">Client</th>
@@ -56,6 +57,7 @@ const RecentBookings = ({ bookings }) => {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

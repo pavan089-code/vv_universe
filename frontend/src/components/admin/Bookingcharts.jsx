@@ -10,7 +10,7 @@ import {
 const BookingChart = ({ data }) => {
 
   return (
-    <div className="bg-gray-900 p-6 rounded-xl">
+    <div className="rounded-xl bg-gray-900 p-4 sm:p-6">
 
       <h2 className="text-lg mb-4">Booking Analytics</h2>
 

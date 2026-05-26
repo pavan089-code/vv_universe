@@ -19,6 +19,7 @@ import AdminLogin from "./pages/admin/AdminLogin.jsx";
 import AdminDashboard from "./pages/admin/Admindashboard.jsx";
 import AdminReviews from "./pages/admin/AdminReviews.jsx";
 import AdminPortfolio from "./pages/admin/Adminportfolio.jsx";
+import AdminJamRegistrations from "./pages/admin/AdminJamRegistrations.jsx";
 import ProtectedRoute from "./components/admin/AdminprotectedRoutes.jsx";
 import JamSession from "./pages/JamSession.jsx";
 
@@ -81,6 +82,18 @@ function App() {
 
         {/* ADMIN Reviews */}
         <Route path="/admin/reviews" element={<AdminReviews />} />
+
+        {/* ADMIN Jam Session Registrations */}
+        <Route
+          path="/admin/jam-registrations"
+          element={
+            <ProtectedRoute>
+              <AdminLayout>
+                <AdminJamRegistrations />
+              </AdminLayout>
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       </div>
     </>

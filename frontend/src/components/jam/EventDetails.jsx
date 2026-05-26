@@ -1,23 +1,76 @@
+import {
+  CalendarDays,
+  Clock3,
+  MapPin,
+  Ticket,
+} from "lucide-react";
+
 const EventDetails = () => {
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <div className="bg-zinc-900 rounded-2xl p-6">
-        <h2 className="text-2xl font-semibold mb-4">
+    <div className="max-w-2xl mx-auto px-4 py-8">
+      <div className="bg-zinc-900 rounded-3xl p-6 shadow-xl">
+        <h2 className="text-2xl font-bold text-white mb-6 text-center">
           Event Details
         </h2>
 
-        {/* <div className="space-y-3">
-          <p>📅 Date: 28th May</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="flex items-center gap-3">
+            <CalendarDays className="text-yellow-400" />
+            <div>
+              <p className="text-gray-400 text-sm">
+                Date
+              </p>
+              <p className="text-white font-medium">
+                30th May 2026
+              </p>
+            </div>
+          </div>
 
-          <p>⏰ Time: 7 PM</p>
+          <div className="flex items-center gap-3">
+            <Clock3 className="text-yellow-400" />
+            <div>
+              <p className="text-gray-400 text-sm">
+                Time
+              </p>
+              <p className="text-white font-medium">
+                6:00 PM Onwards
+              </p>
+            </div>
+          </div>
 
-          <p>📍 Venue: Goa</p>
+          <div className="flex items-center gap-3">
+            <MapPin className="text-yellow-400" />
+            <div>
+              <p className="text-gray-400 text-sm">
+                Venue
+              </p>
+              <p className="text-white font-medium">
+                6 Mall, Kothapet
+              </p>
+            </div>
+          </div>
 
-          <p>🎟 Entry Fee: ₹299</p>
-        </div> */}
+          <div className="flex items-center gap-3">
+            <Ticket className="text-yellow-400" />
+            <div>
+              <p className="text-gray-400 text-sm">
+                Entry Fee
+              </p>
+              <p className="text-white font-medium">
+                ₹299
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 text-center">
+          <p className="text-yellow-400 text-lg font-semibold">
+            One Beat. Many Souls. Infinite Music.
+          </p>
+        </div>
       </div>
     </div>
   );
 };
 
-export default EventDetails;
+export default EventDetails;  

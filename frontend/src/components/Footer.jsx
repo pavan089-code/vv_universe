@@ -35,7 +35,7 @@ export default function Footer() {
           </p>
 
           {/* Socials */}
-          <div className="flex gap-5 text-sm">
+          <div className="flex flex-wrap justify-center gap-5 text-sm">
 
             <a
               href="#"

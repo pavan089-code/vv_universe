@@ -24,10 +24,11 @@ const BookingCalendar = () => {
   });
 
   return (
-    <div className="bg-gray-900 p-6 rounded-xl mt-8">
+    <div className="mt-8 overflow-hidden rounded-xl bg-gray-900 p-4 sm:p-6">
       <h2 className="text-xl mb-4">Booking Calendar</h2>
 
       <Calendar
+        className="max-w-full"
         onChange={setSelectedDate}
         value={selectedDate}
         tileContent={({ date }) => {

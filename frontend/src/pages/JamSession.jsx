@@ -11,13 +11,11 @@ const JamSession = () => {
 
       <EventInvite />
 
-      <div id="details">
-        <EventDetails />
-      </div>
+      <EventDetails />
 
       <PaymentSection />
 
-      <div id="register">
+      <div id="register" className="scroll-mt-24">
         <RegistrationForm />
       </div>
     </div>

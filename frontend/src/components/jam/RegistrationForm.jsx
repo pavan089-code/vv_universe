@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 const RegistrationForm = () => {
   const [form, setForm] = useState({
     name: "",
@@ -9,17 +11,21 @@ const RegistrationForm = () => {
     utr: "",
     screenshot: "",
   });
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus({ type: "", message: "" });
+    setIsSubmitting(true);
 
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/jam/register",
-        form
-      );
+      const res = await axios.post(`${API_BASE_URL}/api/jam/register`, form);
 
-      alert(res.data.message);
+      setStatus({
+        type: "success",
+        message: res.data.message || "Registration submitted",
+      });
 
       setForm({
         name: "",
@@ -29,17 +35,43 @@ const RegistrationForm = () => {
         screenshot: "",
       });
     } catch (error) {
-      alert(error.response.data.message);
+      setStatus({
+        type: "error",
+        message:
+          error.response?.data?.message ||
+          "Unable to submit registration. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
+    <div className="mx-auto max-w-2xl p-4 sm:p-6">
       <form
         onSubmit={handleSubmit}
         className="bg-zinc-900 p-6 rounded-2xl space-y-4"
       >
+        <h2 className="text-2xl font-semibold text-white">Register</h2>
+
+        {status.message && (
+          <p
+            role="status"
+            className={`rounded p-3 text-sm ${
+              status.type === "error"
+                ? "bg-red-500/10 text-red-300"
+                : "bg-green-500/10 text-green-300"
+            }`}
+          >
+            {status.message}
+          </p>
+        )}
+
+        <label className="sr-only" htmlFor="jam-name">
+          Full Name
+        </label>
         <input
+          id="jam-name"
           type="text"
           placeholder="Full Name"
           required
@@ -50,8 +82,12 @@ const RegistrationForm = () => {
           }
         />
 
+        <label className="sr-only" htmlFor="jam-phone">
+          Phone Number
+        </label>
         <input
-          type="text"
+          id="jam-phone"
+          type="tel"
           placeholder="Phone Number"
           required
           className="w-full p-3 rounded bg-black"
@@ -61,7 +97,11 @@ const RegistrationForm = () => {
           }
         />
 
+        <label className="sr-only" htmlFor="jam-instagram">
+          Instagram ID
+        </label>
         <input
+          id="jam-instagram"
           type="text"
           placeholder="Instagram ID"
           className="w-full p-3 rounded bg-black"
@@ -74,7 +114,11 @@ const RegistrationForm = () => {
           }
         />
 
+        <label className="sr-only" htmlFor="jam-utr">
+          UTR Number
+        </label>
         <input
+          id="jam-utr"
           type="text"
           placeholder="UTR Number"
           required
@@ -85,8 +129,12 @@ const RegistrationForm = () => {
           }
         />
 
+        <label className="sr-only" htmlFor="jam-screenshot">
+          Payment Screenshot URL
+        </label>
         <input
-          type="text"
+          id="jam-screenshot"
+          type="url"
           placeholder="Payment Screenshot URL"
           className="w-full p-3 rounded bg-black"
           value={form.screenshot}
@@ -99,9 +147,11 @@ const RegistrationForm = () => {
         />
 
         <button
-          className="w-full bg-yellow-500 text-black py-3 rounded font-semibold"
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-yellow-500 text-black py-3 rounded font-semibold disabled:cursor-not-allowed disabled:opacity-70"
         >
-          Register
+          {isSubmitting ? "Submitting..." : "Register"}
         </button>
       </form>
     </div>

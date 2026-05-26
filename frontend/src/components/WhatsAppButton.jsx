@@ -4,6 +4,7 @@ export default function WhatsAppButton() {
       href="https://wa.me/919966233225"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
       className="fixed bottom-6 left-6 z-50 group"
     >
       {/* Glow */}
@@ -12,7 +13,7 @@ export default function WhatsAppButton() {
       {/* Button */}
       <div className="relative flex items-center">
 
-  <span className="absolute right-16 opacity-0 group-hover:opacity-100 
+  <span className="absolute left-16 opacity-0 group-hover:opacity-100 
   bg-black text-white text-xs px-3 py-1 rounded-md transition whitespace-nowrap">
     Chat on WhatsApp
   </span>

@@ -53,21 +53,23 @@ const AdminPortfolio = () => {
       ? images
       : images.filter((img) => img.category === category);
   return (
-    <div className="p-10">
-      <h1 className="text-3xl font-bold mb-6">Portfolio Manager</h1>
+    <div className="p-0 sm:p-4 lg:p-6">
+      <h1 className="mb-6 text-2xl font-bold sm:text-3xl">Portfolio Manager</h1>
 
       {/* Upload Section */}
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center">
       <input type="file" accept="image/*" onChange={handleImageChange} />
 
       <button
         onClick={handleUpload}
-        className="ml-4 bg-blue-600 px-4 py-2 rounded"
+        className="min-h-11 rounded bg-blue-600 px-4 py-2"
       >
         Upload
       </button>
+      </div>
 
       {/* Category Filters */}
-      <div className="flex gap-4 mb-6">
+      <div className="mb-6 flex flex-wrap gap-4">
         <button
           onClick={() => setCategory("All")}
           className="bg-gray-800 px-4 py-2 rounded"
@@ -110,10 +112,14 @@ const AdminPortfolio = () => {
         </div>
       )}
       {/* Gallery */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredImages.map((img) => (
           <div key={img._id} className="bg-gray-900 rounded-xl p-4 shadow">
-            <img src={img.imageUrl} alt="portfolio" className="rounded mb-3" />
+            <img
+              src={img.imageUrl}
+              alt="portfolio"
+              className="mb-3 aspect-square w-full rounded object-cover"
+            />
 
             <button
               onClick={() => deleteImage(img._id)}

@@ -1,70 +1,53 @@
-import { useState, useEffect } from "react";
-
-import hero1 from "../../assets/model/image8.jpg";
-import hero2 from "../../assets/model/image2.jpeg";
-import hero3 from "../../assets/model/image3.jpg";
-import hero4 from "../../assets/model/image5.jpg";
-import hero5 from "../../assets/model/image10.jpg";
-
 export default function JamHero() {
-  const images = [hero1, hero2, hero3, hero4, hero5];
-
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="relative h-[75vh] w-full overflow-hidden">
-      {/* Background Images */}
-      {images.map((img, i) => (
-        <img
-          key={i}
-          src={img}
-          alt="Jam Session"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-2000 ease-in-out animate-kenburns ${
-            i === index ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
+    <section className="relative h-[65vh] w-full overflow-hidden">
+      {/* Background */}
+      <img
+        src="/RegistrationInvite.jpeg"
+        alt="Jam Session"
+        className="absolute inset-0 w-full h-full object-cover object-center blur-sm scale-110"
+      />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/70" />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/75" />
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center text-center h-full px-4">
-        <div className="text-white max-w-3xl">
+        <div className="text-white max-w-4xl">
+          {/* Small Heading */}
           <p className="uppercase tracking-[0.3em] text-gray-300 text-sm mb-4">
             Live Music • Open Mic • Goa Nights
           </p>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-            VIVA JAM SESSION 🎵
+          {/* Main Title */}
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
+            JAM SESSION 🎵
           </h1>
 
-          <p className="mt-6 text-lg sm:text-xl text-gray-200 leading-relaxed">
-            Experience an unforgettable night of live performances,
-            music, vibes, and creative energy.
+          {/* Subtitle */}
+          <p className="mt-4 text-lg sm:text-xl text-gray-300 leading-relaxed">
+            One Beat. Many Souls. Infinite Music.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mt-10">
+          {/* Limited Slots */}
+          <p className="mt-3 text-yellow-400 font-medium">
+            🎟 Limited Slots Available
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-wrap justify-center gap-4 mt-6">
             <a
               href="#register"
-              className="px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition"
+              className="px-8 py-4 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition duration-300"
             >
               Register Now
             </a>
 
             <a
-              href="#details"
-              className="px-8 py-4 border border-white rounded-full hover:bg-white hover:text-black transition"
+              href="#payment"
+              className="px-8 py-4 border border-white rounded-full hover:bg-white hover:text-black transition duration-300"
             >
-              Event Details
+              Pay Now
             </a>
           </div>
         </div>

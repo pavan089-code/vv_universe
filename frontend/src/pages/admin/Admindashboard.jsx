@@ -46,10 +46,10 @@ const AdminDashboard = () => {
   }, []);
 
   return (
-    <div className="p-8">
+    <div className="p-0 sm:p-4 lg:p-6">
 
       <p className="text-gray-400 mb-4">Welcome back, Admin 👋</p>
-      <h1 className="text-3xl font-bold mb-8">Dashboard Overview</h1>
+      <h1 className="mb-8 text-2xl font-bold sm:text-3xl">Dashboard Overview</h1>
 
       <DashboardCards bookingCount={bookings.length} />
 
@@ -58,7 +58,7 @@ const AdminDashboard = () => {
         <BookingCalendar />
       </div>
 
-      <div className="bg-gray-900 p-6 rounded-xl mt-8">
+      <div className="mt-8 rounded-xl bg-gray-900 p-4 sm:p-6">
         <RecentBookings bookings={bookings} />
       </div>
 

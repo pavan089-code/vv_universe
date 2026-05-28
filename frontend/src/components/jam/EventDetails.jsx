@@ -21,7 +21,7 @@ const EventDetails = () => {
                 Date
               </p>
               <p className="text-white font-medium">
-                30th May 2026
+                6th June   2026
               </p>
             </div>
           </div>
@@ -57,7 +57,7 @@ const EventDetails = () => {
                 Entry Fee
               </p>
               <p className="text-white font-medium">
-                ₹299
+                ₹139
               </p>
             </div>
           </div>

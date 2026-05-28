@@ -16,7 +16,7 @@ export default function JamHero() {
         <div className="text-white max-w-4xl">
           {/* Small Heading */}
           <p className="uppercase tracking-[0.3em] text-gray-300 text-sm mb-4">
-            Live Music • Open Mic • Goa Nights
+            Live Music • Open Mic 
           </p>
 
           {/* Main Title */}

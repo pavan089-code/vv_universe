@@ -11,7 +11,7 @@ const PaymentSection = () => {
         </h2>
 
         <img
-          src="/PhonepeQr.png"
+          src="/PhonepeQr.jpeg"
           alt="PhonePe payment QR code"
           className="mx-auto w-full max-w-72 rounded-xl"
         />

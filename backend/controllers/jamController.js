@@ -9,13 +9,13 @@ export const registerJam = async (req, res) => {
   try {
      console.log("BODY:", req.body);
     console.log("FILE:", req.file);
-    const {
-      name,
-      email,
-      phone,
-      instagram,
-    } = req.body;
-
+    const { name, email, phone, instagram } = req.body || {};
+     if (!name || !email || !phone) {
+      return res.status(400).json({
+        success: false,
+        message: "Missing required fields",
+      });
+    }
     const screenshot = req.file?.path;
 
     if (!screenshot) {

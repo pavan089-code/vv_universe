@@ -1,5 +1,5 @@
 import Portfolio from "../models/Portfolio.js";
-import cloudinary from "../config/Cloudinary.js";
+import cloudinary from "../config/cloudinary.js";
 
 export const getPortfolio = async (req, res) => {
   try {

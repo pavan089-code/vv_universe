@@ -6,7 +6,10 @@ router.post("/login", (req, res) => {
 
   const { email, password } = req.body;
 
-  if (email === "admin@vv.com" && password === "123456") {
+  if (
+    email === process.env.ADMIN_EMAIL &&
+    password === process.env.ADMIN_PASSWORD
+  ) {
     return res.json({ success: true });
   }
 

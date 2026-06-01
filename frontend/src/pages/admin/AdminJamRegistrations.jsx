@@ -104,12 +104,17 @@ const AdminJamRegistrations = () => {
     return registrations.filter((registration) => {
       const name = registration?.name || "";
       const phone = registration?.phone || "";
+      const email = registration?.email || "";
+      const token = registration?.registrationToken || "";
       const matchesSearch =
         !query ||
         name.toLowerCase().includes(query) ||
-        phone.toLowerCase().includes(query);
+        phone.toLowerCase().includes(query) ||
+        email.toLowerCase().includes(query) ||
+        token.toLowerCase().includes(query);
       const matchesStatus =
-        statusFilter === "all" || getPaymentStatus(registration) === statusFilter;
+        statusFilter === "all" ||
+        getPaymentStatus(registration) === statusFilter;
 
       return matchesSearch && matchesStatus;
     });
@@ -144,7 +149,7 @@ const AdminJamRegistrations = () => {
           <input
             id="jam-registration-search"
             type="text"
-            placeholder="Search by name or phone..."
+            placeholder="Search by name, email, phone or token..."
             className="min-h-11 w-full rounded bg-gray-800 p-3 text-white outline-none ring-1 ring-gray-700 focus:ring-yellow-500"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -177,17 +182,18 @@ const AdminJamRegistrations = () => {
 
       <div className="overflow-hidden rounded-xl border border-gray-800 bg-gray-900">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[980px]">
+          <table className="w-full min-w-[1200px]">
             <thead className="border-b border-gray-700 text-gray-400">
               <tr>
-                <th className="px-4 py-3 text-left">Name</th>
-                <th className="px-4 py-3 text-left">Phone</th>
-                <th className="px-4 py-3 text-left">Instagram</th>
-                <th className="px-4 py-3 text-left">UTR</th>
-                <th className="px-4 py-3 text-left">Registration Date</th>
-                <th className="px-4 py-3 text-left">Screenshot</th>
-                <th className="px-4 py-3 text-left">Status</th>
-                <th className="px-4 py-3 text-left">Actions</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Instagram</th>
+                <th>Token</th>
+                <th>Registration Date</th>
+                <th>Screenshot</th>
+                <th>Status</th>
+                <th>Actions</th>
               </tr>
             </thead>
 
@@ -213,20 +219,48 @@ const AdminJamRegistrations = () => {
 
                   return (
                     <tr
-                      key={registration?._id || registration?.utr}
+                      key={registration?._id}
                       className="border-b border-gray-800 transition hover:bg-gray-800"
                     >
                       <td className="px-4 py-3 font-medium">
                         {getValue(registration?.name)}
                       </td>
+
                       <td className="px-4 py-3">
                         {getValue(registration?.phone)}
                       </td>
+
+                      <td className="px-4 py-3">
+                        {getValue(registration?.email)}
+                      </td>
+
                       <td className="px-4 py-3">
                         {getValue(registration?.instagram)}
                       </td>
-                      <td className="max-w-44 truncate px-4 py-3 font-mono text-sm">
-                        {getValue(registration?.utr)}
+
+                      <td className="max-w-52 truncate px-4 py-3 font-mono text-sm">
+                        {registration?.registrationToken ? (
+                          <div className="flex items-center gap-2">
+                            <span className="text-green-400 font-semibold">
+                              {registration.registrationToken}
+                            </span>
+
+                            <button
+                              onClick={() =>
+                                navigator.clipboard.writeText(
+                                  registration.registrationToken,
+                                )
+                              }
+                              className="rounded bg-blue-600 px-2 py-1 text-xs hover:bg-blue-500"
+                            >
+                              Copy
+                            </button>
+                          </div>
+                        ) : (
+                          <span className="text-yellow-400">
+                            Pending Verification
+                          </span>
+                        )}
                       </td>
                       <td className="px-4 py-3">
                         {formatDate(registration?.createdAt)}
@@ -238,7 +272,8 @@ const AdminJamRegistrations = () => {
                             onClick={() =>
                               setSelectedScreenshot({
                                 src: screenshot,
-                                name: registration?.name || "Payment screenshot",
+                                name:
+                                  registration?.name || "Payment screenshot",
                               })
                             }
                             className="block h-16 w-16 overflow-hidden rounded-lg ring-1 ring-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"

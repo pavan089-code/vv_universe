@@ -1,26 +1,21 @@
-require("dotenv").config();
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
+import Admin from "./models/admin.js";
 
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+dotenv.config();
 
-const Admin = require("./models/Admin");
+await mongoose.connect(process.env.MONGO_URI);
 
-mongoose.connect(process.env.MONGO_URI);
+const hashedPassword = await bcrypt.hash("admin123", 10);
 
-const createAdmin = async () => {
-
- const hashedPassword = await bcrypt.hash("admin123", 10);
-
- const admin = new Admin({
+const admin = new Admin({
   email: "admin@vvproductions.com",
-  password: hashedPassword
- });
+  password: hashedPassword,
+});
 
- await admin.save();
+await admin.save();
 
- console.log("Admin created");
+console.log("Admin created successfully");
 
- process.exit();
-};
-
-createAdmin();
+process.exit(0);

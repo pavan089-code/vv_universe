@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
-import hero1 from "../assets/model/image8.jpg";
+import hero1 from "../assets/model/image6.png";
 import hero2 from "../assets/model/image2.jpeg";
 import hero3 from "../assets/model/image3.jpg";
 import hero4 from "../assets/model/image5.jpg";
-import hero5 from "../assets/model/image10.jpg";
+import hero5 from "../assets/model/image7.png";
+
+const images = [hero1, hero2, hero3, hero4, hero5];
 
 export default function Hero() {
-  const images = [hero1, hero2, hero3, hero4, hero5];
-
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
